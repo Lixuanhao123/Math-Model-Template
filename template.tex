@@ -1,0 +1,115 @@
+%! Mode:: "TeX:UTF-8"
+%! TEX program = xelatex
+\documentclass[withoutpreface,bwprint]{cumcmthesis}
+
+\usepackage{etoolbox}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\BeforeBeginEnvironment{tabular}{\zihao{-5}}
+\BeforeBeginEnvironment{tabularx}{\zihao{-5}}
+
+% A4 纸，四边 2.5 cm；正文小四号、1.25 倍行距，中西文字体分别为宋体和 Times New Roman。
+\geometry{a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm}
+\renewcommand{\baselinestretch}{1.25}
+\setlength{\parindent}{2em}
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+
+% 无页眉；页码位于页脚中部。标题/摘要页不显示页码，正文从第二页显示 1。
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+
+% 题目三号黑体；一级标题四号黑体居中；二、三级标题小四号黑体左对齐。
+\titleformat{\section}{\centering\heiti\zihao{4}}{\thesection}{1em}{}
+\titleformat{\subsection}{\heiti\zihao{-4}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\heiti\zihao{-4}}{\thesubsubsection}{1em}{}
+\DeclareCaptionFont{wuh}{\heiti\zihao{-5}}
+\captionsetup{font=wuh,labelfont=wuh,justification=centering}
+\captionsetup[figure]{font=wuh,labelfont=wuh,justification=centering}
+\bibliographystyle{gbt7714-numerical}
+
+\title{论文题目（请填写）}
+
+\begin{document}
+\pagenumbering{arabic}
+\setcounter{page}{0}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+请在此填写中文摘要。摘要应简明说明研究问题、建模思路、主要方法、核心结果与结论，避免出现单位、姓名、队号等可能泄露答题人身份的信息。
+
+\noindent\textbf{关键词：}关键词一；关键词二；关键词三；关键词四
+\end{abstract}
+
+% 正文从此页开始，页脚中部显示阿拉伯数字 1。
+\setcounter{page}{1}
+
+\section{问题重述}
+简要、客观地重述题目要求，不照抄题面；涉及公开资料时，在正文中按顺序编码引用，例如文献 \cite{example}。
+
+\section{问题分析}
+说明问题的结构、关键难点、总体思路以及各子问题之间的关系。
+
+\section{模型假设}
+在此列出合理、必要且可检验的模型假设。
+
+\section{符号说明}
+\begin{table}[htbp]
+  \centering
+  \caption{主要符号说明}
+  \begin{tabularx}{0.9\textwidth}{>{\centering\arraybackslash}p{0.22\textwidth}X}
+    \toprule
+    符号 & 含义 \\
+    \midrule
+    $x$ & 请填写符号含义 \\
+    $y$ & 请填写符号含义 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\section{模型建立与求解}
+\subsection{子问题一模型}
+请填写模型建立、公式推导、算法设计和求解过程。
+
+\subsection{子问题二模型}
+请填写模型建立、公式推导、算法设计和求解过程。
+
+\subsubsection{算法流程}
+请插入算法流程图或伪代码。图题、表题使用五号黑体并居中，图、表编号分别连续编号。
+
+\section{结果分析与模型检验}
+展示计算结果、敏感性分析、误差分析、稳定性检验或对比实验。
+
+\section{模型评价与推广}
+\subsection{模型优点}
+请填写。
+\subsection{模型不足}
+请填写。
+\subsection{模型推广}
+请填写。
+
+\section{结论}
+请用简洁文字概括主要结论，确保结论均能由前文模型和结果支持。
+
+\section*{AI工具使用情况说明}
+请在此说明论文写作、程序编写、数据处理或排版过程中使用的 AI 工具及其具体用途。
+
+% 参考文献置于结论之后、附录之前。
+\bibliography{ref}
+
+% 附录标题与第一张图同页，图片不加外框，四张题干图片各占一页。
+\clearpage
+\section*{附录}
+
+\end{document}
